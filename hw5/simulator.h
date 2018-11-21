@@ -11,6 +11,8 @@
 #include <stdio.h>
 #include <math.h>
 #include <time.h>
+#include <semaphore.h>
+#include <pthread.h>
 
 // Constants
 #define EMPTY 0
@@ -57,11 +59,11 @@ static job_t* pq_tail; // tail (last element) of the priority queue
 // pthread_mutex_t, pthread_mutex_init, pthread_mutex_lock, 
 // pthread_mutex_unlock, etc.
 
-
-
-
-
-
+sem_t pq_full;
+sem_t pq_empty;
+sem_t flip_dis;
+sem_t flop_cpu;
+sem_t add_job;
 
 
 // ------------------------------------
